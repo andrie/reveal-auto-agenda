@@ -1,30 +1,33 @@
 ---
-title: Code Filename
-format:
-   html: default
-   pdf: default
-filters:
-   - reveal-agenda
+title: "Reveal Agenda"
+author: "Andrie de Vries"
+format: revealjs
+filters: 
+  - reveal-agenda
 ---
 
-An extension that enables you to add a `filename` attribute to code blocks, which is useful if you are documenting the contents of a file and want to be especially clear about the name of the file the code is associated with. 
+# Intro
 
-For example, the following markdown:
+## Quarto
 
-````default
-```{.python filename="matplotlib.py"}
-import matplotlib.pyplot as plt
-plt.plot([1,23,2,4])
-plt.show()
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
 ```
-````
 
-Yields this output:
+# Body
 
-```{.python filename="matplotlib.py"}
-import matplotlib.pyplot as plt
-plt.plot([1,23,2,4])
-plt.show()
-```
+# Conclusion
 
-Non-HTML formats will still have the filename, but it will simply be shown in bold above the code block.
