@@ -1,0 +1,30 @@
+---
+title: Code Filename
+format:
+   html: default
+   pdf: default
+filters:
+   - reveal-agenda
+---
+
+An extension that enables you to add a `filename` attribute to code blocks, which is useful if you are documenting the contents of a file and want to be especially clear about the name of the file the code is associated with. 
+
+For example, the following markdown:
+
+````default
+```{.python filename="matplotlib.py"}
+import matplotlib.pyplot as plt
+plt.plot([1,23,2,4])
+plt.show()
+```
+````
+
+Yields this output:
+
+```{.python filename="matplotlib.py"}
+import matplotlib.pyplot as plt
+plt.plot([1,23,2,4])
+plt.show()
+```
+
+Non-HTML formats will still have the filename, but it will simply be shown in bold above the code block.
