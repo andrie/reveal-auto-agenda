@@ -21,12 +21,23 @@ filters:
 
 ## Usage
 
+Simply create your slides as normal, with H1 header slides marking transitions between agenda items.
+
+The add-in will:
+
+- Create a list of the text of each H1 slide
+- Then insert this list into the body of each H1 slide
+
+
+## Work in progress
+
+The intent is for the bulleted list to function as a running agenda.  This doesn't yet work.
+
+Also, the intent is to suppress the H1 text on these slides using custom CSS.
+
+Finally, to add a border box (or other indicator) to indicate the current active section.
+
+
+## Live preview
+
 To be completed...
-
-
-![](https://user-images.githubusercontent.com/104391/178159800-e3b74510-97e7-469c-87cf-b49cac8602f9.png)
-
-Non-HTML formats will still have the filename, but it will simply be shown in bold above the code block.
-
-You can see the published version of this example at <https://quarto-ext.github.io/reveal-agenda/> ([Source code](example.qmd)).
-
