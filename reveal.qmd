@@ -1,5 +1,5 @@
 ---
-title: "Reveal JS Agenda"
+title: "Reveal Agenda"
 author: "Andrie de Vries"
 format: revealjs
 filters: 
