@@ -1,18 +1,4 @@
-
-
--- for code blocks w/ filename create an enclosing div:
--- <div class="code-with-filename">
---   <div class="code-with-filename-file">
---     <pre>filename.py</pre>
---   </div>
---   <div class="sourceCode" id="cb1" data-filename="filename.py">
---     <pre></pre>
---   </div>
--- </div>
-
-
 local text = pandoc.text
-
 local headers = pandoc.List()
 
 function scan_headers(el)
