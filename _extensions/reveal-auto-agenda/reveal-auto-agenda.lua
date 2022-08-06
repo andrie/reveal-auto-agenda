@@ -1,18 +1,6 @@
 
 
--- for code blocks w/ filename create an enclosing div:
--- <div class="code-with-filename">
---   <div class="code-with-filename-file">
---     <pre>filename.py</pre>
---   </div>
---   <div class="sourceCode" id="cb1" data-filename="filename.py">
---     <pre></pre>
---   </div>
--- </div>
-
-
 local text = pandoc.text
-
 local headers = pandoc.List()
 
 function get_header_text(el)
@@ -33,11 +21,12 @@ end
 
 
 local newBlocks = pandoc.List()
+local header_n = 0
 
 
 function change_header_class(el)
   el.attr = pandoc.Attr("", {"agenda-slide"})
-  quarto.utils.dump(el.attributes)
+  -- quarto.utils.dump(el.attributes)
   return el
 end
 
@@ -45,20 +34,21 @@ function scan_blocks(blocks)
   
   for _,block in ipairs(blocks) do
     if (block.t == "Header" and block.level == 1) then
-      change_header_class(block)
-      newBlocks:insert(block)
-
       -- insert the original header
       -- newBlocks:insert(
       --   pandoc.Header(
       --     1, block.text, pandoc.Attr("", {"agenda-slide"})
       --   )
       -- )
+      
+      header_n = header_n + 1
+      change_header_class(block)
+      newBlocks:insert(block)
 
       -- modify the agenda items for active agenda item
       local mod_headers = pandoc.List()
       for i=1, #headers do 
-        if (headers[i] == get_header_text(block)) then
+        if (i == header_n) then
           mod_headers:insert(
             pandoc.Div(headers[i], pandoc.Attr("", {"agenda-active"}))
           )
@@ -67,6 +57,7 @@ function scan_blocks(blocks)
         end
       end
 
+          
       -- insert the agenda items
       newBlocks:insert(
         pandoc.Div(
@@ -81,9 +72,9 @@ function scan_blocks(blocks)
   
   -- inject the CSS dependency
   quarto.doc.addHtmlDependency({
-    name = "reveal-agenda",
+    name = "reveal-auto-agenda",
     version = "0.0.1",
-    stylesheets = {"reveal-agenda.css"}
+    stylesheets = {"reveal-auto-agenda.css"}
   })
 
   return newBlocks

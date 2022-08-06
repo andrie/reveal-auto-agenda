@@ -1,22 +1,40 @@
 ---
-title: "Reveal Agenda"
+title: "Reveal auto-agenda"
 author: "Andrie de Vries"
 format: revealjs
 filters: 
-  - reveal-agenda
+  - reveal-auto-agenda
 ---
 
-# Intro
+# Motivation
 
-## A slide
+## Why?
 
-with text
+To help people follow the logical flow of a presentation, it is useful to show all top level headings in a single agenda slide.
 
-## Another slide
+But it can be tedious to construct an agenda slide by hand, by copying all the top level headings.
 
-with more text
+This extension automatically constructs an agenda slide from the top level headings.
 
-# Body
+# Mechanics
 
-# Conclusion
+## Using the extension
 
+Add this to the yaml header:
+
+``` yaml
+filters: 
+  - reveal-auto-agenda
+```
+
+Then sit back and watch your agenda slide build itself.
+
+## Where does the agenda show up?
+
+The extension inserts the rolling agenda on every slide with H1 heading.
+
+# Have fun
+
+## That's it.
+
+Have fun!

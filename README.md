@@ -1,4 +1,4 @@
-# reveal-agenda
+# reveal-auto-agenda
 
 A quarto extension for `reveal.js` that automatically creates agenda slides from H1 heading titles.
 
@@ -6,17 +6,17 @@ A quarto extension for `reveal.js` that automatically creates agenda slides from
 
 To install this extension in your current directory (or into the Quarto project that you're currently working in),  use the following command:
 
-```
-quarto install extension andrie/reveal-agenda
+``` shell
+quarto install extension andrie/reveal-auto-agenda
 ```
 
 ## Enabling
 
 Add this to your document or project options:
 
-```yaml
+``` yaml
 filters:
-  - reveal-agenda
+  - reveal-auto-agenda
 ```
 
 ## Usage
