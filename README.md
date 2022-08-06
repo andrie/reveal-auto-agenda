@@ -23,19 +23,11 @@ filters:
 
 Simply create your slides as normal, with H1 header slides marking transitions between agenda items.
 
-The add-in will:
+This extension:
 
-- Create a list of the text of each H1 slide
-- Then insert this list into the body of each H1 slide
-
-
-## Work in progress
-
-The intent is for the bulleted list to function as a running agenda.  This doesn't yet work.
-
-Also, the intent is to suppress the H1 text on these slides using custom CSS.
-
-Finally, to add a border box (or other indicator) to indicate the current active section.
+- Creates a list of the text of each H1 slide
+- Insert this list into the body of each H1 slide
+- Inserts CSS that marks the active section with a border box around the text
 
 
 ## Live preview
