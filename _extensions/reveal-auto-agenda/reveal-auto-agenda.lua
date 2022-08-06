@@ -1,16 +1,11 @@
 
-
+local dump = quarto.utils.dump
+local stringify = pandoc.utils.stringify
 local text = pandoc.text
 local headers = pandoc.List()
 
 function get_header_text(el)
-  local z = ""
-  local htext = el:walk {
-    Str = function(el)
-      z = el.text
-    end
-  }
-  return z
+  return el.content
 end
 
 function scan_headers(el)
@@ -26,7 +21,6 @@ local header_n = 0
 
 function change_header_class(el)
   el.attr = pandoc.Attr("", {"agenda-slide"})
-  -- quarto.utils.dump(el.attributes)
   return el
 end
 
@@ -34,13 +28,6 @@ function scan_blocks(blocks)
   
   for _,block in ipairs(blocks) do
     if (block.t == "Header" and block.level == 1) then
-      -- insert the original header
-      -- newBlocks:insert(
-      --   pandoc.Header(
-      --     1, block.text, pandoc.Attr("", {"agenda-slide"})
-      --   )
-      -- )
-      
       header_n = header_n + 1
       change_header_class(block)
       newBlocks:insert(block)
