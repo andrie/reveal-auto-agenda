@@ -1,5 +1,6 @@
 ---
 title: "Reveal auto-agenda"
+subtitle: "Using the `reveal-auto-agenda` quarto extension to automatically create rolling agenda slides"
 author: "Andrie de Vries"
 format: revealjs
 filters: 
@@ -16,7 +17,7 @@ But it can be tedious to construct an agenda slide by hand, by copying all the t
 
 This extension automatically constructs an agenda slide from the top level headings.
 
-# Mechanics
+# Mechanics of `reveal-auto-agenda`
 
 ## Using the extension
 

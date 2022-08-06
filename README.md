@@ -29,7 +29,32 @@ This extension:
 - Insert this list into the body of each H1 slide
 - Inserts CSS that marks the active section with a border box around the text
 
+## Example
+
+![](example.png)
+
+## Custom CSS
+
+The extension will create custom CSS elements.  You can override these in your own CSS template:
+
+``` css
+.agenda {
+}
+
+.agenda-slide h1 {
+  size: 0em;
+  display: none;
+}
+
+.agenda-active {
+  border: solid;
+  margin-top: -0.5em;
+  margin-bottom: -0.5em;
+}
+```
+
+
 
 ## Live preview
 
-To be completed...
+You can view a live preview of an example presentation at https://andrie.quarto.pub/reveal-auto-agenda/
