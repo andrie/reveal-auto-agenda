@@ -4,6 +4,28 @@ local stringify = pandoc.utils.stringify
 local text = pandoc.text
 local headers = pandoc.List()
 
+local options_bullets = "none"
+local options_heading = nil
+
+-- permitted options include:
+-- auto-agenda:
+--   bullets: none | bullet | numbered
+--   heading: none | heading
+function read_meta(meta)
+  local options = meta["auto-agenda"]
+  options_bullets = "none"
+  if options ~= nil then
+    if options.bullets ~= nil then
+      options_bullets = stringify(options.bullets)
+    else
+      options_bullets = "bullet"
+    end
+    if options.heading ~= nil then
+      options_heading = options.heading
+    end
+  end
+end
+
 function get_header_text(el)
   return el.content
 end
@@ -24,7 +46,21 @@ function change_header_class(el)
   return el
 end
 
+function identity(el)
+  return el
+end
+
 function scan_blocks(blocks)
+
+  -- define agende bullet options
+ 
+  local bullet_class = pandoc.BulletList
+  if options_bullets == "none" then
+    print(options_bullets)
+    bullet_class = identity
+  elseif options_bullets == "numbered" then
+    bullet_class = pandoc.OrderedList
+  end
   
   for _,block in ipairs(blocks) do
     if (block.t == "Header" and block.level == 1) then
@@ -32,12 +68,17 @@ function scan_blocks(blocks)
       change_header_class(block)
       newBlocks:insert(block)
 
+      if (options_heading ~= nil) then
+        -- if defined in options, insert a heading
+        newBlocks:insert(pandoc.Para(options_heading))
+      end
+
       -- modify the agenda items for active agenda item
       local mod_headers = pandoc.List()
       for i=1, #headers do 
         if (i == header_n) then
           mod_headers:insert(
-            pandoc.Div(headers[i], pandoc.Attr("", {"agenda-active"}))
+            pandoc.Div(pandoc.Para(headers[i]), pandoc.Attr("", {"agenda-active"}))
           )
         else
           mod_headers:insert(headers[i])
@@ -48,7 +89,7 @@ function scan_blocks(blocks)
       -- insert the agenda items
       newBlocks:insert(
         pandoc.Div(
-          pandoc.BulletList(mod_headers),
+          bullet_class(mod_headers),
           pandoc.Attr("", {"agenda"})
         )  
       )
@@ -67,4 +108,6 @@ function scan_blocks(blocks)
   return newBlocks
 end
 
-return {{Header = scan_headers}, {Blocks = scan_blocks}}
+if (quarto.doc.isFormat("revealjs")) then
+  return {{Meta = read_meta}, {Header = scan_headers}, {Blocks = scan_blocks}}
+end
