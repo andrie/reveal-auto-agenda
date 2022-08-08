@@ -23,6 +23,8 @@ filters:
 
 Simply create your slides as normal, with H1 header slides marking transitions between agenda items.
 
+Important: the extension assumes that your H1 header slides contains no other content, and that you want these slides to be replaced by the rolling agenda.
+
 This extension:
 
 -   Creates a list of the text of each H1 slide

@@ -5,9 +5,9 @@ author: "Andrie de Vries"
 format: revealjs
 filters: 
   - reveal-auto-agenda
-auto-agenda:
-  bullets: numbered
-  heading: Agenda
+# auto-agenda:
+#   bullets: bullet
+#   heading: Agenda
 ---
 
 # Motivation
@@ -36,6 +36,42 @@ Then sit back and watch your agenda slide build itself.
 ## Where does the agenda show up?
 
 The extension inserts the rolling agenda on every slide with H1 heading.
+
+## Can H1 header slides contain content?
+
+No.
+
+Other than the header, leave these slides blank - the agenda will form the content of the slide.
+
+## Customization {.smaller}
+
+You can customize the bullet type (none, bullets or numbered) and optionally add a heading.
+
+``` yaml
+filters:
+  - reveal-auto-agenda
+auto-agenda:
+  bullets: numbered
+  heading: Agenda
+```
+
+## Customization 2 {.smaller}
+
+You can change these options:
+
+-   `bullets`:
+
+    -   Change the agenda slides to have:
+
+        -   `none`: No bullets or numbers
+        -   `bullets`: Bullet list (the default)
+        -   `numbered`: Numbered list
+
+-   `heading`:
+
+    -   If you set this option, then each agenda slide will have a heading above the agenda list.
+
+    -   Use this to set a heading to "Agenda", "Table of Contents", or similar.
 
 # Have fun
 
