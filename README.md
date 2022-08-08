@@ -67,21 +67,14 @@ auto-agenda:
 
 You can change these options:
 
-+------------+-------------------------------------------------------------------------------------------+
 | Option     | Description                                                                               |
-+============+===========================================================================================+
+|------------|-------------------------------------------------------------------------------------------|
 | `bullets`  | Change the agenda slides to have:                                                         |
-|            |                                                                                           |
 |            | -   `none`: No bullets or numbers                                                         |
-|            |                                                                                           |
 |            | -   `bullets`: Bullet list (the default)                                                  |
-|            |                                                                                           |
 |            | -   `numbered`: Numbered list                                                             |
-+------------+-------------------------------------------------------------------------------------------+
 | `heading`  | If you set this option, then each agenda slide will have a heading above the agenda list. |
-|            |                                                                                           |
 |            | Use this to set a heading to "Agenda", "Table of Contents", or similar.                   |
-+------------+-------------------------------------------------------------------------------------------+
 
 ## Live preview
 
