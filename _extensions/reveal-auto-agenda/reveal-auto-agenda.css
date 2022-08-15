@@ -6,9 +6,13 @@
   display: none;
 }
 
-.agenda-active {
-  border: solid;
+.agenda-inactive {
+  opacity: 0.25;
   margin-top: -0.5em;
   margin-bottom: -0.5em;
 }
 
+.agenda-active {
+  margin-top: -0.5em;
+  margin-bottom: -0.5em;
+}

@@ -27,13 +27,13 @@ Important: the extension assumes that your H1 header slides contains no other co
 
 This extension:
 
--   Creates a list of the text of each H1 slide
--   Insert this list into the body of each H1 slide
--   Inserts CSS that marks the active section with a border box around the text
+- Creates a list of the text of each H1 slide.
+- Insert this list into the body of each H1 slide.
+- Inserts CSS that marks the active section with a border box around the text.
 
 ## Example
 
-![](example.png)
+![Screenshot of three slides containing the outline, with from left to right, the 100 percent opacity bullet list item for the active section and the two other items in 25 percent opacity, on the second slides, first and third items are 25 percent opacity but not the second, and finally on the third slides, the first two items are 25 percent opacity.](example.png)
 
 ## Custom CSS
 
@@ -48,8 +48,13 @@ The extension will create custom CSS elements. You can override these in your ow
   display: none;
 }
 
+.agenda-inactive {
+  opacity: 0.25;
+  margin-top: -0.5em;
+  margin-bottom: -0.5em;
+}
+
 .agenda-active {
-  border: solid;
   margin-top: -0.5em;
   margin-bottom: -0.5em;
 }
@@ -80,4 +85,4 @@ You can change these options:
 
 ## Live preview
 
-You can view a live preview of an example presentation at <https://andrie.quarto.pub/reveal-auto-agenda/>
+You can view a live preview of an example presentation at <https://andrie.quarto.pub/reveal-auto-agenda/>.

@@ -81,7 +81,9 @@ function scan_blocks(blocks)
             pandoc.Div(pandoc.Para(headers[i]), pandoc.Attr("", {"agenda-active"}))
           )
         else
-          mod_headers:insert(pandoc.Para(headers[i]))
+          mod_headers:insert(
+            pandoc.Div(pandoc.Para(headers[i]), pandoc.Attr("", {"agenda-inactive"}))
+          )
         end
       end
           
