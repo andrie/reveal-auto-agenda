@@ -10,7 +10,7 @@ local options_heading = nil
 -- auto-agenda:
 --   bullets: none | bullet | numbered
 --   heading: none | heading
-function read_meta(meta)
+local function read_meta(meta)
   local options = meta["auto-agenda"]
   -- options_bullets = "none"
   -- if options == nil then return meta end
@@ -26,32 +26,30 @@ function read_meta(meta)
   end
 end
 
-function get_header_text(el)
+local function get_header_text(el)
   return el.content
 end
 
-function scan_headers(el)
+local function scan_headers(el)
   if el.level == 1 then
     headers:insert(get_header_text(el))
   end
 end
 
-
-function change_header_class(el)
+local function change_header_class(el)
   el.attr = pandoc.Attr("", {"agenda-slide"})
   return el
 end
 
-function identity(el)
+local function identity(el)
   return el
 end
 
-function scan_blocks(blocks)
+local function scan_blocks(blocks)
   local newBlocks = pandoc.List()
   local header_n = 0
 
   -- define agende bullet options
- 
   local bullet_class = pandoc.BulletList
   if options_bullets ~= nil then
     if options_bullets == "none" then
@@ -61,7 +59,7 @@ function scan_blocks(blocks)
       bullet_class = pandoc.OrderedList
     end
   end
-  
+
   for _, block in pairs(blocks) do
     if (block ~= nil and block.t == "Header" and block.level == 1) then
       header_n = header_n + 1
@@ -75,25 +73,28 @@ function scan_blocks(blocks)
 
       -- modify the agenda items for active agenda item
       local mod_headers = pandoc.List()
-      for i=1, #headers do 
+      for i=1, #headers do
         if (i == header_n) then
           mod_headers:insert(
-            pandoc.Div(pandoc.Para(headers[i]), pandoc.Attr("", {"agenda-active"}))
+            pandoc.Div(pandoc.Para(headers[i]), pandoc.Attr("", {"active"}))
           )
-        else
+        elseif (i < header_n) then
           mod_headers:insert(
-            pandoc.Div(pandoc.Para(headers[i]), pandoc.Attr("", {"agenda-inactive"}))
+            pandoc.Div(pandoc.Para(headers[i]), pandoc.Attr("", {"inactive", "pre-active"}))
+          )
+        elseif (i > header_n) then
+          mod_headers:insert(
+            pandoc.Div(pandoc.Para(headers[i]), pandoc.Attr("", {"inactive", "post-active"}))
           )
         end
       end
           
       -- insert the agenda items
-
       newBlocks:insert(
         pandoc.Div(
           bullet_class(mod_headers),
           pandoc.Attr("", {"agenda"})
-        )  
+        )
       )
     else
       newBlocks:insert(block)

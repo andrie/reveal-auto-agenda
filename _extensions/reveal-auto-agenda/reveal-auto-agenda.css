@@ -6,12 +6,21 @@
   display: none;
 }
 
-.agenda-inactive {
-
+.active {
+  outline: solid 5px #000;
+  outline-offset: 0.2rem;
+  font-weight: bold;
 }
 
-.agenda-active {
-  outline: solid 5px #000;
-  outline-offset: 0.5rem;
-  font-weight: bold;
+.inactive {
+  /* outline: dashed 5px #000;
+  outline-offset: 0.2rem; */
+}
+
+.pre-active {
+  /* color: #b22222; */
+}
+
+.post-active {
+  /* color: #2222b2; */
 }
