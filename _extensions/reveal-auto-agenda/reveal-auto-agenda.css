@@ -7,12 +7,11 @@
 }
 
 .agenda-inactive {
-  opacity: 0.25;
-  margin-top: -0.5em;
-  margin-bottom: -0.5em;
+
 }
 
 .agenda-active {
-  margin-top: -0.5em;
-  margin-bottom: -0.5em;
+  outline: solid 5px #000;
+  outline-offset: 0.5rem;
+  font-weight: bold;
 }
