@@ -1,0 +1,18 @@
+.agenda {
+}
+
+.agenda-slide h1 {
+  size: 0em;
+  display: none;
+}
+
+.agenda :not .agenda-active {
+  border: solid blue;
+}
+
+.agenda-active {
+  border: solid;
+  margin-top: -0.5em;
+  margin-bottom: -0.5em;
+}
+
