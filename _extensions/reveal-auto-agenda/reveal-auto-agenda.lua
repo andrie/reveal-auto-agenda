@@ -68,25 +68,28 @@ local function scan_blocks(blocks)
 
       -- if defined in options, insert a heading
       if (options_heading ~= nil) then
-        newBlocks:insert(pandoc.Para(options_heading))
+        newBlocks:insert(
+          pandoc.Div(
+            pandoc.Para(options_heading),
+            pandoc.Attr("", {"agenda-heading"})
+          )
+        )
       end
 
       -- modify the agenda items for active agenda item
       local mod_headers = pandoc.List()
+      local agenda_class = {}
       for i=1, #headers do
         if (i == header_n) then
-          mod_headers:insert(
-            pandoc.Div(pandoc.Para(headers[i]), pandoc.Attr("", {"active"}))
-          )
+          agenda_class = {"agenda-active"}
         elseif (i < header_n) then
-          mod_headers:insert(
-            pandoc.Div(pandoc.Para(headers[i]), pandoc.Attr("", {"inactive", "pre-active"}))
-          )
+          agenda_class = {"agenda-inactive", "agenda-pre-active"}
         elseif (i > header_n) then
-          mod_headers:insert(
-            pandoc.Div(pandoc.Para(headers[i]), pandoc.Attr("", {"inactive", "post-active"}))
-          )
+          agenda_class = {"agenda-inactive", "agenda-post-active"}
         end
+        mod_headers:insert(
+          pandoc.Div(pandoc.Para(headers[i]), pandoc.Attr("", agenda_class))
+        )
       end
           
       -- insert the agenda items

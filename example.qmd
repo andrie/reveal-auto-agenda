@@ -5,9 +5,9 @@ author: "Andrie de Vries"
 format: revealjs
 filters: 
   - reveal-auto-agenda
-# auto-agenda:
+auto-agenda:
 #   bullets: bullet
-#   heading: Agenda
+  heading: "Agenda:"
 ---
 
 # Motivation
