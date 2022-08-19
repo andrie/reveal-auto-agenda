@@ -27,9 +27,9 @@ Important: the extension assumes that your H1 header slides contains no other co
 
 This extension:
 
-- Creates a list of the text of each H1 slide.
-- Insert this list into the body of each H1 slide.
-- Inserts CSS that marks the active section with a border box around the text.
+-   Creates a list of the text of each H1 slide.
+-   Insert this list into the body of each H1 slide.
+-   Inserts CSS that marks the active section with a border box around the text.
 
 ## Example
 
@@ -74,14 +74,14 @@ auto-agenda:
 
 You can change these options:
 
-| Option     | Description                                                                               |
-|------------|-------------------------------------------------------------------------------------------|
-| `bullets`  | Change the agenda slides to have:                                                         |
-|            | -   `none`: No bullets or numbers                                                         |
-|            | -   `bullets`: Bullet list (the default)                                                  |
-|            | -   `numbered`: Numbered list                                                             |
-| `heading`  | If you set this option, then each agenda slide will have a heading above the agenda list. |
-|            | Use this to set a heading to "Agenda", "Table of Contents", or similar.                   |
+| Option    | Description                                                                               |
+|-----------|-------------------------------------------------------------------------------------------|
+| `bullets` | Change the agenda slides to have:                                                         |
+|           | \- `none`: No bullets or numbers                                                          |
+|           | \- `bullets`: Bullet list (the default)                                                   |
+|           | \- `numbered`: Numbered list                                                              |
+| `heading` | If you set this option, then each agenda slide will have a heading above the agenda list. |
+|           | Use this to set a heading to "Agenda", "Table of Contents", or similar.                   |
 
 ## Live preview
 
