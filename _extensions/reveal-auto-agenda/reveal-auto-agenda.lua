@@ -37,7 +37,7 @@ local function scan_headers(el)
 end
 
 local function change_header_class(el)
-  el.attr = pandoc.Attr("", {"agenda-slide"})
+  el.attr.classes = {"agenda-slide"}
   return el
 end
 
