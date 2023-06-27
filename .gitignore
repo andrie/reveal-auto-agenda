@@ -6,3 +6,4 @@
 .Rhistory
 
 *.Rproj
+/.luarc.json
