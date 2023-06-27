@@ -1,5 +1,4 @@
 
-local dump = quarto.utils.dump
 local stringify = pandoc.utils.stringify
 local headers = pandoc.List()
 
@@ -12,8 +11,6 @@ local options_heading = nil
 --   heading: none | heading
 local function read_meta(meta)
   local options = meta["auto-agenda"]
-  -- options_bullets = "none"
-  -- if options == nil then return meta end
   if options ~= nil then
     if options.bullets ~= nil then
       options_bullets = stringify(options.bullets)
@@ -31,11 +28,13 @@ local function get_header_text(el)
 end
 
 local function scan_headers(el)
-  if el.level == 1 then
+  if el.level == 1  then
     headers:insert(get_header_text(el))
   end
 end
 
+--@param el pandoc.Header
+--@return pandoc.Header
 local function change_header_class(el)
   el.attr.classes = {"agenda-slide"}
   return el
@@ -53,7 +52,6 @@ local function scan_blocks(blocks)
   local bullet_class = pandoc.BulletList
   if options_bullets ~= nil then
     if options_bullets == "none" then
-    -- print(options_bullets)
     bullet_class = identity
     elseif options_bullets == "numbered" then
       bullet_class = pandoc.OrderedList
@@ -61,7 +59,11 @@ local function scan_blocks(blocks)
   end
 
   for _, block in pairs(blocks) do
-    if (block ~= nil and block.t == "Header" and block.level == 1) then
+    if (block ~= nil and 
+      block.t == "Header" and 
+      block.level == 1 and 
+      not block.attr.classes:includes("no-auto-agenda")
+    ) then
       header_n = header_n + 1
       change_header_class(block)
       newBlocks:insert(block)
@@ -107,7 +109,7 @@ local function scan_blocks(blocks)
   -- inject the CSS dependency
   quarto.doc.addHtmlDependency({
     name = "reveal-auto-agenda",
-    version = "0.0.1",
+    version = "0.0.3",
     stylesheets = {"reveal-auto-agenda.css"}
   })
 

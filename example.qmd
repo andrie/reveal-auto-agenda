@@ -73,6 +73,16 @@ You can change these options:
 
     -   Use this to set a heading to "Agenda", "Table of Contents", or similar.
 
+# Don't add agenda {.no-auto-agenda}
+
+If you want to suppress the agenda on a particular slide, add the class `no-auto-agenda` to the slide:
+
+``` 
+# Header {.no-auto-agenda}
+```
+
+
+
 # Have fun
 
 ## That's it.
