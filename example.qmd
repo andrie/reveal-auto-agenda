@@ -77,7 +77,7 @@ You can change these options:
 
 If you want to suppress the agenda on a particular slide, add the class `no-auto-agenda` to the slide:
 
-``` 
+``` md
 # Header {.no-auto-agenda}
 ```
 

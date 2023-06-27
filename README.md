@@ -83,6 +83,14 @@ You can change these options:
 | `heading` | If you set this option, then each agenda slide will have a heading above the agenda list. |
 |           | Use this to set a heading to "Agenda", "Table of Contents", or similar.                   |
 
+## Exclude auto-agenda from specific slides
+
+If you want to suppress the agenda on a particular slide, add the class `no-auto-agenda` to the slide:
+
+``` md
+# Header {.no-auto-agenda}
+```
+
 ## Live preview
 
 You can view a live preview of an example presentation at <https://andrie.quarto.pub/reveal-auto-agenda/>.
