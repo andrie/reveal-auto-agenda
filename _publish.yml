@@ -1,4 +1,4 @@
 - source: example.qmd
   quarto-pub:
     - id: c040130c-fb88-4bfa-a331-b0801d5f5286
-      url: 'https://quartopub.com/sites/andrie/reveal-auto-agenda'
+      url: 'https://andrie.quarto.pub/reveal-auto-agenda'
