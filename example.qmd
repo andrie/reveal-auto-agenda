@@ -8,6 +8,7 @@ filters:
 auto-agenda:
 #   bullets: bullet
   heading: "Agenda:"
+  clickable: true
 ---
 
 # Motivation
