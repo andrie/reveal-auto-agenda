@@ -6,7 +6,7 @@ A quarto extension for `reveal.js` that automatically creates agenda slides from
 
 To install this extension in your current directory (or into the Quarto project that you're currently working in), use the following command:
 
-``` shell
+```shell
 quarto install extension andrie/reveal-auto-agenda
 ```
 
@@ -14,7 +14,7 @@ quarto install extension andrie/reveal-auto-agenda
 
 Add this to your document or project options:
 
-``` yaml
+```yaml
 filters:
   - reveal-auto-agenda
 ```
@@ -27,9 +27,9 @@ Important: the extension assumes that your H1 header slides contains no other co
 
 This extension:
 
--   Creates a list of the text of each H1 slide.
--   Insert this list into the body of each H1 slide.
--   Inserts CSS that marks the active section with a border box around the text.
+- Creates a list of the text of each H1 slide.
+- Insert this list into the body of each H1 slide.
+- Inserts CSS that marks the active section with a border box around the text.
 
 ## Example
 
@@ -39,7 +39,7 @@ This extension:
 
 The extension will create custom CSS elements. You can override these in your own CSS template:
 
-``` css
+```css
 .agenda {
 }
 
@@ -64,30 +64,32 @@ The extension will create custom CSS elements. You can override these in your ow
 
 To change the default behaviour, include `auto-agenda` options in your yaml:
 
-``` yaml
+```yaml
 filters:
   - reveal-auto-agenda
 auto-agenda:
   bullets: numbered
   heading: Agenda
+  clickable: true
 ```
 
 You can change these options:
 
-| Option    | Description                                                                               |
-|-----------|-------------------------------------------------------------------------------------------|
-| `bullets` | Change the agenda slides to have:                                                         |
-|           | \- `none`: No bullets or numbers                                                          |
-|           | \- `bullets`: Bullet list (the default)                                                   |
-|           | \- `numbered`: Numbered list                                                              |
-| `heading` | If you set this option, then each agenda slide will have a heading above the agenda list. |
-|           | Use this to set a heading to "Agenda", "Table of Contents", or similar.                   |
+| Option      | Description                                                                               |
+| ----------- | ----------------------------------------------------------------------------------------- |
+| `bullets`   | Change the agenda slides to have:                                                         |
+|             | \- `none`: No bullets or numbers                                                          |
+|             | \- `bullets`: Bullet list (the default)                                                   |
+|             | \- `numbered`: Numbered list                                                              |
+| `heading`   | If you set this option, then each agenda slide will have a heading above the agenda list. |
+|             | Use this to set a heading to "Agenda", "Table of Contents", or similar.                   |
+| `clickable` | Set to true to make the list items clickable (default = false).                           |
 
 ## Exclude auto-agenda from specific slides
 
 If you want to suppress the agenda on a particular slide, add the class `no-auto-agenda` to the slide:
 
-``` md
+```md
 # Header {.no-auto-agenda}
 ```
 
